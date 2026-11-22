@@ -137,6 +137,7 @@ jobs:
         
         ls -l
         cd ffmpeg
+        python3 "$GITHUB_WORKSPACE/tests/test_mpegts_wrapped_webp.py" --ffmpeg-source .
         for PATCH_FILE in $PATCH_DIR/ffmpeg/*.patch; do
           if [ -f "$PATCH_FILE" ]; then
             echo "Applying patch: $PATCH_FILE"

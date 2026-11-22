@@ -41,7 +41,7 @@ index fe008ee..34e43da 100644
  
      if (is_http && !in && c->http_persistent && c->playlist_pb) {
          in = c->playlist_pb;
-@@ -965,6 +976,15 @@ static int parse_playlist(HLSContext *c, const char *url,
+@@ -965,4 +976,13 @@ static int parse_playlist(HLSContext *c, const char *url,
          } else if (av_strstart(line, "#EXT-X-ENDLIST", &ptr)) {
              if (pls)
                  pls->finished = 1;
@@ -55,8 +55,6 @@ index fe008ee..34e43da 100644
 +                next_seg_after_discontinuity = 1;
 +            }
          } else if (av_strstart(line, "#EXTINF:", &ptr)) {
-             is_segment = 1;
-             duration   = atof(ptr) * AV_TIME_BASE;
 @@ -1064,6 +1084,9 @@ static int parse_playlist(HLSContext *c, const char *url,
                  }
  
